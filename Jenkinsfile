@@ -12,7 +12,7 @@ pipeline {
                 sh "RAILS_ENV=test bundle install"
                 sh "RAILS_ENV=test rails db:create"
                 sh "RAILS_ENV=test rails db:migrate"
-                echo "Test PR"
+                echo "Test PR 2"
             }
         }
 
