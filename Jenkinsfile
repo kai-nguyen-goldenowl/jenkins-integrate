@@ -21,7 +21,7 @@ pipeline {
         }
     }
 
-    posts {
+    post {
       always {
         echo 'Test run completed'
         cleanWs()
