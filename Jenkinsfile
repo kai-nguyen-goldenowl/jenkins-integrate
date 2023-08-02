@@ -1,10 +1,9 @@
 pipeline {
     agent any
 
-    enviroment {
+    environment {
       RAILS_ENV = 'test'
     }
-
 
     stages {
         stage('Create Database') {
@@ -17,12 +16,17 @@ pipeline {
 
         stage('Test') {
           steps {
-            sh bundle exec rspec
+            sh 'bundle exec rspec'
           }
         }
     }
 
     posts {
+      always {
+        echo 'Test run completed'
+        cleanWs()
+      }
+
       success {
         echo 'Successfully. Thanks God'
       }
