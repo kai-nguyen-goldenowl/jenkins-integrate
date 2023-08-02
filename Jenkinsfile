@@ -13,6 +13,7 @@ pipeline {
                 sh "RAILS_ENV=test rails db:create"
                 sh "RAILS_ENV=test rails db:migrate"
                 echo "Test RSPEC"
+                echo "testttt"
             }
         }
 
