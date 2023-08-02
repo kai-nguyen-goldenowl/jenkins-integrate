@@ -23,6 +23,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
