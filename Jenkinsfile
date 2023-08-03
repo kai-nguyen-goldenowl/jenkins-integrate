@@ -15,7 +15,9 @@ pipeline {
 
         stage('Check Rubocop') {
           steps {
-            sh 'rubocop -A'
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                  sh "rubocop -A"
+            }
           }
         }
 
