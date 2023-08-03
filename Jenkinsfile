@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-      RAILS_ENV = 'test'
-    }
-
     stages {
         stage('Create Database') {
             steps {
@@ -15,6 +11,12 @@ pipeline {
                 echo "Test RSPEC"
                 echo "testttt"
             }
+        }
+
+        stage('Check Rubocop') {
+          steps {
+            sh 'rubocop -A'
+          }
         }
 
         stage('Test') {
